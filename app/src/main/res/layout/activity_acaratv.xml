@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".listtvshow.detailtvshow.DetailAcaraTv">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.film3.listtvshow.detailtvshow.DetailAcaraTvViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:minHeight="256dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/g1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_view"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/g1"
+            app:layout_constraintGuide_percent=".5"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_margin="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/g1"
+            app:layout_constraintTop_toTopOf="@id/img_view"
+            app:layout_constraintBottom_toBottomOf="@id/img_view"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <TextView
+                style="@style/title"
+                android:text="@string/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                style="@style/value"
+                android:layout_marginStart="4dp"
+                android:text="@{viewmodel.resultsItem.name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTitle" />
+
+            <TextView
+                style="@style/title"
+                android:text="@string/tanggal_rilis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                style="@style/value"
+                android:layout_marginStart="4dp"
+                android:text="@{viewmodel.resultsItem.firstAirDate}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvRealeseDate" />
+
+            <TextView
+                style="@style/title"
+                android:text="@string/vote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                style="@style/value"
+                android:layout_marginStart="4dp"
+                android:text="@{String.valueOf(viewmodel.resultsItem.voteCount)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvVote"/>
+
+            <TextView
+                style="@style/title"
+                android:text="@string/bahasa_asal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                style="@style/value"
+                android:layout_marginStart="4dp"
+                android:text="@{viewmodel.resultsItem.originalLanguage}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvOriginalLanguage"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:text="@{viewmodel.resultsItem.overview}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_txt_overview"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/img_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

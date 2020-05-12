@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.film3.listmovies.detailmovie.DetailFilmViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        tools:context=".listmovies.detailmovie.DetailFilm">
+
+        <ImageView
+            android:id="@+id/img_view"
+            android:layout_width="0dp"
+            android:layout_height="205dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="TODO"
+            android:minHeight="256dp"
+            app:layout_constraintEnd_toEndOf="@id/gil"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gil"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/title_title"
+            style="@style/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.resultsItem.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toBottomOf="@id/title_title" />
+
+        <TextView
+            android:id="@+id/title_release_date"
+            style="@style/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tanggal_rilis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvRealeseDate"
+            style="@style/value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.resultsItem.releaseDate}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toBottomOf="@id/title_release_date" />
+
+        <TextView
+            android:id="@+id/title_vote"
+            style="@style/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/vote"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toBottomOf="@id/tvRealeseDate" />
+
+        <TextView
+            android:id="@+id/tvVote"
+            style="@style/value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewmodel.resultsItem.voteCount)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toBottomOf="@id/title_vote" />
+
+        <TextView
+            android:id="@+id/title_original_language"
+            style="@style/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bahasa_asal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toBottomOf="@id/tvVote" />
+
+        <TextView
+            android:id="@+id/tvOriginalLanguage"
+            style="@style/value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.resultsItem.originalLanguage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gil"
+            app:layout_constraintTop_toBottomOf="@id/title_original_language" />
+
+
+        <TextView
+            android:id="@+id/tv_txt_overview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{viewmodel.resultsItem.overview}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOriginalLanguage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
